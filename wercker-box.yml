@@ -1,0 +1,30 @@
+name: php
+version: 0.0.1
+inherits: pjvds/php@0.9.7
+type: service
+platform: ubuntu@12.04
+description: wercker box for php development
+keywords:
+    - php
+    - php-mongo
+    - nodejs
+    - bower
+    - sass
+packages:
+    - php@5.5
+script: |
+    # Build PHP MongoDB module
+    sudo pecl install mongo-1.4.5
+
+    # Install Node.js
+    sudo add-apt-repository ppa:chris-lea/node.js -y
+    sudo apt-get update
+    sudo apt-get install -y nodejs
+
+    # Install Bower
+    sudo npm install -g bower
+
+    # Install Sass
+    sudo apt-get install -y rubygems
+    sudo gem install sass
+
