@@ -1,31 +1,32 @@
 name: php
 version: 0.0.1
-inherits: pjvds/php@0.9.7
+inherits: wercker/ubuntu12.04-webessentials@1.0.4
 type: service
 platform: ubuntu@12.04
 description: wercker box for php development
 keywords:
     - php
-    - php-mongo
+    - mongo
     - nodejs
     - bower
     - sass
 packages:
     - php@5.5
 script: |
-    # Build PHP MongoDB module
-    sudo apt-get install -y php5-dev php-pear
-    sudo pecl install mongo-1.4.5
+    # Install launchpad repositories
+    sudo add-apt-repository ppa:ondrej/php5 -y
+    sudo apt-get update -y
 
-    # Install Node.js
-    sudo add-apt-repository ppa:chris-lea/node.js -y
-    sudo apt-get update
-    sudo apt-get install -y nodejs
+    # Install PHP
+    sudo apt-get install php5-cli php5-dev php5-intl php5-mcrypt php-pear -y
+
+    # Build PHP MongoDB module
+    sudo pecl install mongo-1.4.5
 
     # Install Bower
     sudo npm install -g bower
 
     # Install Sass
-    sudo apt-get install -y rubygems
+    sudo apt-get install rubygems -y
     sudo gem install sass
 
