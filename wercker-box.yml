@@ -1,5 +1,5 @@
 name: php
-version: 0.0.2
+version: 0.0.3
 inherits: wercker/ubuntu12.04-webessentials@1.0.4
 type: service
 platform: ubuntu@12.04
@@ -20,6 +20,10 @@ script: |
 
     # Install PHP
     sudo apt-get install php5-cli php5-dev php5-intl php5-mcrypt php-pear -y
+
+    # Configure PEAR
+    pear config-set php_ini /etc/php5/cli/php.ini
+    pecl config-set php_ini /etc/php5/cli/php.ini
 
     # Build PHP MongoDB module
     sudo pecl install mongo-1.4.5
