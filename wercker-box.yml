@@ -14,6 +14,7 @@ packages:
     - php@5.5
 script: |
     # Build PHP MongoDB module
+    sudo apt-get install -y php5-dev php-pear
     sudo pecl install mongo-1.4.5
 
     # Install Node.js
