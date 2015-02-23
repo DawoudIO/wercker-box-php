@@ -29,6 +29,9 @@ script: |
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
 
+    # Install Nodejs
+    sudo apt-get install nodejs npm -y
+
     # Install Bower
     sudo npm install -g bower
 
