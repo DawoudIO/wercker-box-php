@@ -1,11 +1,12 @@
 Wercker box for PHP development
 ===============================
 
-This box is based on [wercker's webessentials](https://github.com/wercker/box-ubuntu12.04-webessentials).
+## Pakages
 
-## Additional packages
-
-- PHP MongoDB module
-- Node.js
+- PHP with MongoDB module
+- Composer
+- Node.js and npm
 - Bower
 - Sass
+- Ruby 1.9.3
+- Capistrano 2.15.5
