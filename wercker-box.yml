@@ -1,5 +1,6 @@
 name: php
-version: 0.0.6
+version: 0.0.7
+inherits: wercker/ubuntu12.04-ruby1.9.3@2.0.0
 type: service
 platform: ubuntu@12.04
 description: wercker box for php development
@@ -12,14 +13,6 @@ keywords:
     - sass
     - capistrano
 script: |
-    sudo apt-get update
-
-    # Install some base package
-    sudo apt-get install git curl -y
-
-    # Install python software properties
-    sudo apt-get install python-software-properties -y
-
     # Install launchpad repositories
     sudo add-apt-repository ppa:ondrej/php5 -y
     sudo add-apt-repository ppa:chris-lea/node.js -y
@@ -32,15 +25,8 @@ script: |
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
 
-    # Install Nodejs
-    sudo apt-get install nodejs -y
-
     # Install Bower
     sudo npm install -g bower
-
-    # Upgrade ruby
-    sudo apt-get install ruby1.9.3 -y
-    sudo apt-get remove libruby1.8 ruby1.8 ruby1.8-dev rubygems1.8 -y
 
     # Install Sass
     sudo apt-get install rubygems -y
