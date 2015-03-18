@@ -1,5 +1,5 @@
 name: php
-version: 0.0.7
+version: 0.0.8
 inherits: wercker/ubuntu12.04-ruby1.9.3@2.0.0
 type: service
 platform: ubuntu@12.04
@@ -11,6 +11,7 @@ keywords:
     - nodejs
     - bower
     - sass
+    - gulp
     - capistrano
 script: |
     # Install launchpad repositories
@@ -27,6 +28,9 @@ script: |
 
     # Install Bower
     sudo npm install -g bower
+
+    # Install Gulp
+    sudo npm install -g gulp
 
     # Install Sass
     sudo apt-get install rubygems -y
