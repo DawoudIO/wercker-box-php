@@ -1,5 +1,5 @@
 name: php
-version: 0.0.8
+version: 0.0.9
 inherits: wercker/ubuntu12.04-ruby1.9.3@2.0.0
 type: service
 platform: ubuntu@12.04
@@ -13,6 +13,7 @@ keywords:
     - sass
     - gulp
     - capistrano
+    - ember-cli
 script: |
     # Install launchpad repositories
     sudo add-apt-repository ppa:ondrej/php5 -y
@@ -26,11 +27,8 @@ script: |
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
 
-    # Install Bower
-    sudo npm install -g bower
-
-    # Install Gulp
-    sudo npm install -g gulp
+    # Install JS tools
+    sudo npm install -g bower gulp ember-cli
 
     # Install Sass
     sudo apt-get install rubygems -y
