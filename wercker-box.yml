@@ -1,5 +1,5 @@
 name: php
-version: 0.0.9
+version: 0.1.0
 inherits: wercker/ubuntu12.04-ruby1.9.3@2.0.0
 type: service
 platform: ubuntu@12.04
@@ -26,6 +26,11 @@ script: |
     # Install Composer
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
+
+    # Install PHPUnit
+    wget https://phar.phpunit.de/phpunit.phar
+    chmod +x phpunit.phar
+    sudo mv phpunit.phar /usr/local/bin/phpunit
 
     # Install JS tools
     sudo npm install -g bower gulp ember-cli
